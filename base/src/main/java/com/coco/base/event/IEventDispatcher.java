@@ -4,7 +4,7 @@ package com.coco.base.event;
  * Created by chenqi on 2018/8/11.
  */
 
-public interface IeventDispatcher extends IEvent{
+public interface IEventDispatcher extends IEvent{
 
     /**
      * 定向分发事件。对指定dispatcher D委派类型为Type T的事件。
@@ -13,15 +13,15 @@ public interface IeventDispatcher extends IEvent{
      */
     <P> void distribute(String eventType, P params);
 
-    void addEventListener(String type, int priority, IeventListener listener);
+    void addEventListener(String type, IEventListener listener);
 
-    void addEventLIstener(String type, IeventListener listener);
-
-    void removeEventLIstener(String type, IeventListener listener);
+    void addEventListener(String type, int priority, IEventListener listener);
 
     void removeEventListenerByType(String type);
 
+    void removeEventListener(String type, IEventListener listener);
+
     void removeAllEventListeners();
 
-    boolean hasEventListener();
+    boolean hasEventListener(String type);
 }

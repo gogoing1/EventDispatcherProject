@@ -9,7 +9,7 @@ import android.support.v4.util.Pools;
 public class EventListenerHolder {
 
     public int priority = 0;
-    public IeventListener listener;
+    public IEventListener listener;
 
     private static final Pools.Pool<EventListenerHolder> holderPool =
             new Pools.SynchronizedPool<EventListenerHolder>(50);
@@ -24,14 +24,14 @@ public class EventListenerHolder {
     }
 
 
-    public static EventListenerHolder obtain(IeventListener listener){
+    public static EventListenerHolder obtain(IEventListener listener){
         EventListenerHolder holder = EventListenerHolder.obtain();
         holder.listener = listener;
         return holder;
     }
 
 
-    public static EventListenerHolder obtain(int priority, IeventListener listener){
+    public static EventListenerHolder obtain(int priority, IEventListener listener){
         EventListenerHolder holder = EventListenerHolder.obtain();
         holder.priority = priority;
         holder.listener = listener;
