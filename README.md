@@ -1,6 +1,7 @@
 # EventDispatcherProject
 a simply android EventDispatcher library
 ## 使用
+´´´
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -50,3 +51,4 @@ public class MainActivity extends AppCompatActivity {
         EventManager.defaultAgent().removeEventListener(AppEvent.TYPE_ON_RECEIVE_MESSAGE, listener);
     }
 }
+´´´
