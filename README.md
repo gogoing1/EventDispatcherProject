@@ -1,8 +1,31 @@
 # EventDispatcherProject
 一个轻量级的事件分发库
 
-## 使用
+## 引入步骤
+### 一
+把model 'base'直接复制一份到项目中 ，在使用到的model的 build.gradle文件下添加：
+compile project（'base'）
 
+### 二
+在application中初始化
+public class CocoApplication extends Application{
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        //初始化事件库
+        init();
+    }
+
+    private void init() {
+        EventManager.defaultAgent().init();
+    }
+}
+
+### 三
+UI层注册监听，这里模拟的发送事件一般是在业务层处理
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -43,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        //销毁事件
+        //销毁事件（避免内存泄露）
         removeEvent();
         super.onDestroy();
     }
@@ -52,3 +75,5 @@ public class MainActivity extends AppCompatActivity {
         EventManager.defaultAgent().removeEventListener(AppEvent.TYPE_ON_RECEIVE_MESSAGE, listener);
     }
 }
+
+    ok～ have a nice day...
