@@ -60,7 +60,7 @@ public class EventDispatcher implements IEventDispatcher {
         if(executorService == null){
             executorService = new ThreadPoolExecutor(
                     0,1,
-                    60, TimeUnit.MINUTES,
+                    60L, TimeUnit.SECONDS,
                     new LinkedBlockingQueue<Runnable>(), new DefaultThreadFactory("event_"));
         }
     }
@@ -117,7 +117,7 @@ public class EventDispatcher implements IEventDispatcher {
                                     dispatcherHandler.post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            int count = dispatchingKeyMap.contains(key) ? dispatchingKeyMap.get(key) : 0;
+                                            int count = dispatchingKeyMap.containsKey(key) ? dispatchingKeyMap.get(key) : 0;
                                             if(count > 0){
                                                 listener.onEvent(eventType, params);
                                             }else {

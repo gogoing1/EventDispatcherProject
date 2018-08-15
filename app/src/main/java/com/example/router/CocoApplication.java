@@ -15,6 +15,7 @@ public class CocoApplication extends Application{
     public void onCreate() {
         super.onCreate();
 
+        //初始化事件
         init();
     }
 
