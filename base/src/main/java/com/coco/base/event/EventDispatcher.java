@@ -57,6 +57,7 @@ public class EventDispatcher implements IEventDispatcher {
 
     @Override
     public void init() {
+        Log.i(TAG,"[ init executorService.]");
         if(executorService == null){
             executorService = new ThreadPoolExecutor(
                     0,1,
@@ -89,7 +90,7 @@ public class EventDispatcher implements IEventDispatcher {
      */
     @Override
     public <P> void distribute(final String eventType, final P params) {
-        if(executorService !=null){
+        if(executorService == null){
             Log.i(TAG, String.format("[ distribute error executorService == null. type = %s params = %s]",
                     eventType, params.toString()));
             return;
