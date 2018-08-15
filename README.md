@@ -1,5 +1,6 @@
 # EventDispatcherProject
-a simply android EventDispatcher library
+一个轻量级的事件分发库
+
 ## 使用
 
 public class MainActivity extends AppCompatActivity {
