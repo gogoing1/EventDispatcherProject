@@ -83,4 +83,4 @@ compile project（'base'）
     }
 
 
-    ok～ 这个轻量级的事件库，喜欢的朋友 可以点个Star哦，have a nice day...
+    ok～ 这个轻量级的事件库，喜欢的朋友 可以点个Star哦
